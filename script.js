@@ -90,13 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LOGICA VISOR GALERIA (LIGHTBOX) ---
+    // --- LOGICA VISOR GALERIA AMPLIADA (LIGHTBOX) ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
-    const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item img');
+    
+    // CORRECCIÓN: Agarra las fotos de la galería, la portada de inicio y los perfiles
+    const expandibleImages = document.querySelectorAll('.gallery-grid .gallery-item img, #inicio .col-left .img-responsive, .char-img');
 
-    galleryItems.forEach(img => {
+    expandibleImages.forEach(img => {
         img.addEventListener('click', () => {
             lightbox.style.display = 'block';
             lightboxImg.src = img.src; 

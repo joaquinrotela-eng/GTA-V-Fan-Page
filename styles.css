@@ -82,14 +82,20 @@ h1, h2, h3, .nav-link, .logo a, .submit-btn, .section-title, .dropdown-item {
 .flex-2-col { display: flex; align-items: center; gap: 4rem; }
 .row-reverse { flex-direction: row-reverse; }
 .col-left, .col-right { flex: 2; }
-.img-responsive { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.img-responsive { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.5s ease; }
 
-/* CONTROL DE LA CARÁTULA DE INICIO */
+/* AJUSTE DE PORTADA DE INICIO Y SU HOVER SUMADO */
 #inicio .col-left .img-responsive {
     max-width: 420px;       
     height: auto;           
     margin: 0 auto;         
     display: block;
+    cursor: pointer; /* Mano de clic */
+}
+#inicio .col-left:hover .img-responsive {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    filter: brightness(1.1);
 }
 
 .main-title { font-size: 5rem; margin-bottom: 1rem; text-shadow: 2px 2px 5px #000; }
@@ -116,6 +122,7 @@ h1, h2, h3, .nav-link, .logo a, .submit-btn, .section-title, .dropdown-item {
     display: block;
     margin: 0 auto;         
     box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
+    cursor: pointer; /* Mano de clic */
     transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 .char-franklin:hover .char-img { transform: scale(1.05); box-shadow: 0 0 40px var(--color-franklin); filter: brightness(1.1); }
@@ -139,7 +146,7 @@ h1, h2, h3, .nav-link, .logo a, .submit-btn, .section-title, .dropdown-item {
 }
 .submit-btn:hover { background: #ccc; transform: translateY(-3px); }
 
-/* GALERIA CON CURSOR EN LUPA */
+/* GALERIA */
 .gallery-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; justify-content: center; }
 .gallery-item { flex: 1 1 300px; max-width: 400px; height: 250px; overflow: hidden; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); cursor: pointer; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; display: block; }
@@ -159,14 +166,19 @@ h1, h2, h3, .nav-link, .logo a, .submit-btn, .section-title, .dropdown-item {
     .nav-menu.active { right: 0; }
     .flex-2-col, .row-reverse { flex-direction: column; text-align: center; }
     
-    .dropdown { padding-bottom: 0; margin-bottom: 0; width: 100%; }
+    .dropdown { 
+        padding-bottom: 0; 
+        margin-bottom: 0; 
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
     .dropdown-menu { position: static; transform: none; display: none; width: 100%; text-align: center; background: transparent; border: none; box-shadow: none; }
     .dropdown.mobile-open .dropdown-menu { display: flex; }
 }
 
-.main-footer { background: #050505; padding: 2rem; text-align: center; border-top: 1px solid #222; margin-top: auto; }
-.footer-links a { color: #888; font-size: 1.2rem; margin: 0 1rem; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: #fff; }
+.main-footer { background: #050505; padding: 2.5rem; text-align: center; border-top: 1px solid #222; margin-top: auto; }
 
 /* VISOR LIGHTBOX */
 .lightbox-modal {
@@ -195,4 +207,32 @@ h1, h2, h3, .nav-link, .logo a, .submit-btn, .section-title, .dropdown-item {
 @media (max-width: 768px) {
     .lightbox-content { width: 95%; }
     .lightbox-close { top: 20px; right: 20px; font-size: 45px; }
+}
+
+/* FILA DE ICONOS UNIFICADA EN EL FOOTER */
+.footer-icons-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;             
+    margin-bottom: 1.2rem;
+}
+
+.footer-icons-row a {
+    color: #888;
+    font-size: 1.7rem;       
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.footer-icons-row a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer-credits {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
 }
